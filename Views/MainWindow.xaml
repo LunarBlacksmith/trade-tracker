@@ -5,12 +5,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:trade_tracker.Views"
-    mc:Ignorable="d"
-    ThemeMode="System"
     Title="Trade Tracker"
     Height="450"
-    Width="800">
-    
+    ThemeMode="System"
+    Width="800"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d"
+    >
+
+    <Window.Resources>
+        <!-- Local values for properties will override styles. -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="75" />
+            <Setter Property="MaxHeight" Value="200" />
+            <Setter Property="MaxWidth" Value="250" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            >
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="Center"
+                                RecognizesAccessKey="True"
+                                VerticalAlignment="Center"
+                                />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Violet" />
+                    <Setter Property="Foreground" Value="Orange" />
+                    <Setter Property="Height" Value="120" />
+                    <Setter Property="Width" Value="150" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,16 +66,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Button
-            Grid.Column="1"
-            Grid.Row="1"
-            BorderBrush="Crimson"
-            BorderThickness="3"
-            Content="Hello Button"
-            Background="AliceBlue"
-            Foreground="BurlyWood"
-            MaxHeight="100"
-            MaxWidth="150"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
+            Content="This is a Button"
+            />
     </Grid>
 </Window>
